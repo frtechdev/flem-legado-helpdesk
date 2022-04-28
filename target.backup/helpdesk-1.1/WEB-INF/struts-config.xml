@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN"
+          "http://struts.apache.org/dtds/struts-config_1_2.dtd">
+<struts-config>
+    <form-beans>
+        <form-bean name="baseForm" type="org.apache.struts.action.DynaActionForm">
+            <form-property name="id" type="java.lang.String" />
+            <form-property name="sigla" type="java.lang.String" />
+            <form-property name="descricao" type="java.lang.String" />
+            <form-property name="idPai" type="java.lang.String" />
+            <form-property name="faq" type="java.lang.String" />
+        </form-bean>
+        
+        <form-bean name="loginForm" type="org.apache.struts.action.DynaActionForm" >
+            <form-property name="id" type="java.lang.String" />
+            <form-property name="usuario" type="java.lang.String" />
+            <form-property name="senha" type="java.lang.String" />
+        </form-bean>
+        
+        <form-bean name="chamadoForm"
+            type="org.apache.struts.action.DynaActionForm">
+            <form-property name="id" type="java.lang.String" />
+            <form-property name="assunto" type="java.lang.String" />
+            <form-property name="descricao" type="java.lang.String" />
+            <form-property name="idcategoria" type="java.lang.String" />
+            <form-property name="listacategoria" type="java.util.ArrayList" />
+            <form-property name="idsubcategoria" type="java.lang.String" />
+            <form-property name="listasubcategoria" type="java.util.ArrayList" />
+            <form-property name="resposta" type="java.lang.String" />
+            <form-property name="arquivoAnexo" type="org.apache.struts.upload.FormFile" />
+        </form-bean>
+        
+        <form-bean name="chamadoSuporteForm"
+            type="org.apache.struts.action.DynaActionForm">
+            <form-property name="id" type="java.lang.String" />            
+            <!--ver -->
+            <form-property name="iddepartamento" type="java.lang.String" />
+            <form-property name="listadepartamento" type="java.util.ArrayList" />
+            <form-property name="idusuario" type="java.lang.String" />
+            <form-property name="listausuario" type="java.util.ArrayList" />
+            <form-property name="usuario" type="java.lang.String" />
+            <form-property name="assunto" type="java.lang.String" />
+            <form-property name="criacao" type="java.lang.String" />
+            <form-property name="ultimaacao" type="java.lang.String" />
+            <form-property name="descricao" type="java.lang.String" />
+            <!-- alterar -->
+            <form-property name="idcategoria" type="java.lang.String" />
+            <form-property name="listacategoria" type="java.util.ArrayList" />
+            <form-property name="idsubcategoria" type="java.lang.String" />
+            <form-property name="listasubcategoria" type="java.util.ArrayList" />
+            <form-property name="idorigem" type="java.lang.String" />
+            <form-property name="listaorigem" type="java.util.ArrayList" />
+            <form-property name="idprioridade" type="java.lang.String" />
+            <form-property name="listaprioridade" type="java.util.ArrayList" />
+            <form-property name="idsituacao" type="java.lang.String" />
+            <form-property name="listasituacao" type="java.util.ArrayList" />
+            <form-property name="observacao" type="java.lang.String" />            
+            <!--adicionar-->
+             <form-property name="equipamento" type="java.lang.String" />
+             <form-property name="listaequipamento" type="java.util.ArrayList" />
+            <form-property name="resposta" type="java.lang.String" />
+            <form-property name="solucao" type="java.lang.String" />
+            <form-property name="responsavel" type="java.lang.String" />
+            <form-property name="arquivoAnexo" type="org.apache.struts.upload.FormFile"/>
+        </form-bean>
+        
+        <form-bean name="relatorioForm" type="org.apache.struts.action.DynaActionForm">
+            <form-property name="inicio" type="java.lang.String" />
+            <form-property name="fim" type="java.lang.String" />
+            <form-property name="situacao" type="java.lang.String" />
+            <form-property name="categoria" type="java.lang.String" />
+            <form-property name="subcategoria" type="java.lang.String" />
+        </form-bean>
+        
+        <form-bean name="consultaForm" type="org.apache.struts.action.DynaActionForm">
+            <form-property name="inicio" type="java.lang.String" />
+            <form-property name="fim" type="java.lang.String" />
+            <form-property name="situacao" type="java.lang.String" />
+            <form-property name="categoria" type="java.lang.String" />
+            <form-property name="subcategoria" type="java.lang.String" />
+            <form-property name="departamento" type="java.lang.String" />
+            <form-property name="usuario" type="java.lang.String" />
+            <form-property name="origem" type="java.lang.String" />
+            <form-property name="assunto" type="java.lang.String" />
+            <form-property name="historico" type="java.lang.String" />
+        </form-bean>
+        
+        <form-bean name="resumoForm" type="org.apache.struts.action.DynaActionForm">
+            <form-property name="dataInicial" type="java.lang.String" />
+            <form-property name="dataFinal" type="java.lang.String" />
+            <form-property name="descricao" type="java.lang.String" />
+            <form-property name="janeiro" type="java.lang.String" />
+            
+        </form-bean>
+        
+        <form-bean name="situacaoForm" type="org.apache.struts.action.DynaActionForm">
+            <form-property name="situacao" type="java.lang.String" />
+            <form-property name="resposta" type="java.lang.String" />
+        </form-bean>
+        
+        <form-bean name="equipamentoForm" type="org.apache.struts.action.DynaActionForm">
+            <form-property name="codigo" type="java.lang.String" />
+            <form-property name="descricao" type="java.lang.String" />
+            <form-property name="responsavel" type="java.lang.String" />
+            <form-property name="detentor" type="java.lang.String" />
+            <form-property name="tombo" type="java.lang.String" />
+            <form-property name="localizacao" type="java.lang.String" />
+            <form-property name="serial" type="java.lang.String" />
+            <form-property name="fabricante" type="java.lang.String" />
+            <form-property name="situacao" type="java.lang.String" />
+            <form-property name="modelo" type="java.lang.String" />
+        </form-bean>
+        
+    </form-beans>
+    
+    <global-exceptions>
+    
+    </global-exceptions>
+
+    <global-forwards>
+        <forward name="home"  path="/Home.do"/>
+        <forward name="redirect"  path="/redirect.jsp"/>
+    </global-forwards>
+
+    <action-mappings>
+        <action path="/Home" forward="/inicio.jsp"/>
+
+        <action path="/ChamadoUsuario" name="chamadoForm"
+            type="br.org.flem.helpdesk.web.struts.action.ChamadoUsuarioAction"
+            parameter="metodo" scope="request" validate="true" >
+            <forward name="lista" path="/pages/lista.jsp"/>
+            <forward name="novo" path="/pages/novo.jsp"/>
+            <forward name="alterar" path="/pages/chamado.jsp"/>
+            <forward name="sucesso" path="/index.jsp" />
+            <forward name="envioArquivo" path="/pages/envioArquivo.jsp"/>
+        </action>
+        
+        <action path="/Categoria" name="baseForm"
+            type="br.org.flem.helpdesk.web.struts.action.CategoriaAction"
+            parameter="metodo" scope="request" validate="true">
+            <forward name="cadastro" path="/adm/categoria.jsp"/>
+            <forward name="subCategoria" path="/adm/sub_categoria.jsp" />
+            <forward name="sucesso" path="/index.jsp" />
+        </action>
+        
+        <action path="/ChamadoSuporte" name="chamadoSuporteForm"
+            type="br.org.flem.helpdesk.web.struts.action.ChamadoSuporteAction"
+            parameter="metodo" scope="request" validate="true">
+            <forward name="lista" path="/adm/lista.jsp"/>
+            <forward name="novo" path="/adm/novo.jsp"/>
+            <forward name="atender" path="/adm/chamado.jsp" />
+        </action>
+        
+        <action path="/Relatorio" name="relatorioForm" type="br.org.flem.helpdesk.web.struts.action.RelatorioAction" parameter="metodo" scope="request" validate="true">
+            <forward name="filtroListagemChamados" path="/relatorio/filtroListagemChamados.jsp"/>
+        </action>
+        
+        <action path="/Consulta" name="consultaForm" type="br.org.flem.helpdesk.web.struts.action.ConsultaAction" parameter="metodo" scope="request" validate="true">
+            <forward name="consultaChamados" path="/consulta/consultaChamados.jsp"/>
+        </action>
+        
+        <action path="/Resumo" name="resumoForm" type="br.org.flem.helpdesk.web.struts.action.ResumoAction" parameter="metodo" scope="request" validate="true">
+            <forward name="lista" path="/adm/resumoOperacional.jsp"/>
+        </action>
+        
+        <action path="/Situacao" name="situacaoForm" type="br.org.flem.helpdesk.web.struts.action.SituacaoAction" parameter="metodo" scope="request" validate="true">
+            <forward name="resposta" path="/adm/situacaoResposta.jsp"/>
+        </action>
+        
+         <action path="/Equipamento" name="equipamentoForm" type="br.org.flem.helpdesk.web.struts.action.EquipamentoAction" parameter="metodo" scope="request" validate="true">
+            <forward name="lista" path="/adm/equipamento.jsp"/>
+        </action>
+        
+    </action-mappings>
+    
+    <message-resources parameter="br/org/flem/helpdesk/ApplicationResource"/>    
+    
+    <!-- ========================= Validator plugin ================================= -->
+    <plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+        <set-property
+        property="pathnames" value="/WEB-INF/validator-rules.xml,/WEB-INF/validation.xml"/>
+    </plug-in>
+  
+</struts-config>

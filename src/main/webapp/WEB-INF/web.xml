@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+    
+    <!-- FILTROS -->
+    <description>Aplicação de apoio ao Helpdesk</description>
+    <display-name>Helpdesk</display-name>
+    <context-param>
+        <param-name>javax.servlet.jsp.jstl.fmt.localizationContext</param-name>
+        <param-value>ApplicationResource</param-value>
+    </context-param>
+    <welcome-file-list>
+    	<welcome-file>/index.html</welcome-file>
+    </welcome-file-list>
+    <filter>
+        <filter-name>LoginFiltro</filter-name>
+        <filter-class>br.org.flem.fw.web.filtro.LoginFiltro</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>LoginFiltro</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    <filter>
+        <filter-name>FechaSessao</filter-name>
+        <filter-class>br.org.flem.fwe.web.filtro.FechaSessao</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>FechaSessao</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    <servlet>
+        <servlet-name>action</servlet-name>
+        <servlet-class>org.apache.struts.action.ActionServlet</servlet-class>
+        <init-param>
+            <param-name>config</param-name>
+            <param-value>/WEB-INF/struts-config.xml</param-value>
+        </init-param>
+        <init-param>
+            <param-name>debug</param-name>
+            <param-value>2</param-value>
+        </init-param>
+        <init-param>
+            <param-name>detail</param-name>
+            <param-value>2</param-value>
+        </init-param>
+        <load-on-startup>2</load-on-startup>
+    </servlet>  
+    <servlet>
+        <description>DWR controller servlet</description>
+        <servlet-name>DWR controller servlet</servlet-name>
+        <servlet-class>org.directwebremoting.servlet.DwrServlet</servlet-class>
+        <init-param>
+            <param-name>classes</param-name>
+            <param-value>br.org.flem.helpdesk.web.dwr.Funcoes,
+                br.org.flem.helpdesk.negocio.Categoria,
+                br.org.flem.helpdesk.negocio.Situacao,
+                br.org.flem.helpdesk.negocio.Prioridade,
+                br.org.flem.fw.persistencia.dto.Usuario
+            </param-value>
+        </init-param>
+        <init-param>
+            <param-name>debug</param-name>
+            <param-value>false</param-value>
+        </init-param>
+        <init-param> 
+            <param-name>crossDomainSessionSecurity</param-name> 
+            <param-value>false</param-value> 
+        </init-param> 
+    </servlet>    
+    <servlet>
+        <servlet-name>DownloadServlet</servlet-name>
+        <servlet-class>br.org.flem.helpdesk.filter.DownloadServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>action</servlet-name>
+        <url-pattern>*.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DWR controller servlet</servlet-name>
+        <url-pattern>/dwr/*</url-pattern>
+    </servlet-mapping>   
+    <servlet-mapping>
+        <servlet-name>DownloadServlet</servlet-name>
+        <url-pattern>*.zip</url-pattern>
+    </servlet-mapping>
+    <session-config>
+        <session-timeout>360</session-timeout>
+    </session-config>
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
+    <error-page>
+        <exception-type>jcifs.smb.SmbException</exception-type>
+        <location>/jcifis.jsp</location>
+    </error-page>
+    <error-page>
+        <error-code>500</error-code>
+        <location>/erro.jsp</location>
+    </error-page>
+    
+</web-app>

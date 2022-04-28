@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="br.org.flem.helpdesk.negocio.Historico" table="historico">
+
+        <id name="id" column="id_historico" type="integer">
+            <generator class="identity" />
+        </id>
+
+        <property name="data" column="data" type="timestamp" />
+        
+        <property name="texto" column="texto" type="string" />
+        
+        <property name="usuario" column="idt_usuario" type="integer" />
+
+        <many-to-one name="situacao" class="br.org.flem.helpdesk.negocio.Situacao" column="id_situacao" />
+        
+        <many-to-one name="chamado" class="br.org.flem.helpdesk.negocio.Chamado" column="id_chamado" />
+
+ 
+        
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<!--
+    Document   : Chamado.hbm.xml
+    Created on : 10 de Setembro de 2006, 11:11
+    Author     : mario
+    Description:
+        Purpose of the document follows.
+-->
+<hibernate-mapping>
+    <class name="br.org.flem.helpdesk.negocio.Chamado" table="chamado">
+
+        <id name="id" column="id_chamado" type="integer">
+		<generator class="identity" />
+	</id>
+
+	<property name="assunto" column="assunto" type="string" />
+        
+ 	<property name="criacao" column="criacao" type="timestamp" />
+        
+        <property name="ultimaAcao" column="ultimaAcao" type="timestamp" />
+        
+         <property name="observacao" column="observacao" type="string" />
+
+        <property name="usuario" column="idt_usuario" type="integer" />
+        
+        <property name="responsavel" column="idt_usuario_resp" type="integer" />
+        
+        <property name="solucao" column="solucao" type="string" />
+        
+        <property name="equipamento" column="idt_micro" type="integer" />
+        
+        <many-to-one name="situacao" class="br.org.flem.helpdesk.negocio.Situacao" column="id_situacao" />
+        
+        <many-to-one name="origem" class="br.org.flem.helpdesk.negocio.MeioComunicacao" column="id_meio_comunicacao" />
+        
+        <many-to-one name="prioridade" class="br.org.flem.helpdesk.negocio.Prioridade" column="id_prioridade" />
+        
+        <many-to-one name="categoria" class="br.org.flem.helpdesk.negocio.Categoria" column="id_categoria" />
+
+        <set name="historico" cascade="all" inverse="true" lazy="true" >
+            <key column="id_chamado"/>
+            <one-to-many class="br.org.flem.helpdesk.negocio.Historico"/>
+        </set>
+        
+        <set name="anexo" cascade="all" lazy="true" >
+            <key column="id_chamado"/>
+            <one-to-many class="br.org.flem.helpdesk.negocio.Anexo"/>
+        </set>
+        
+        
+    </class>
+</hibernate-mapping>

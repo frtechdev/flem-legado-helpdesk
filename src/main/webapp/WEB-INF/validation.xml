@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE form-validation PUBLIC
+          "-//Apache Software Foundation//DTD Commons Validator Rules Configuration 1.1.3//EN"
+          "http://jakarta.apache.org/commons/dtds/validator_1_1_3.dtd">
+    <form-validation>
+    <global>
+        <constant>
+            <constant-name>postalCode</constant-name>
+            <constant-value>^\d{5}\d*$</constant-value>
+        </constant>
+    </global>
+
+    <formset>
+        <form name="baseForm">
+            <field property="sigla" depends="required"> 
+                <arg key="helpdesk.sigla"/>
+            </field>
+            <field property="descricao" depends="required">
+                <arg key="helpdesk.descricao"/>
+            </field>
+        </form>
+    </formset>
+    
+    <formset>
+        <form name="chamadoForm">
+            <field
+                property="assunto" depends="required" >
+                <arg key="helpdesk.assunto"/>
+            </field>
+            <field property="descricao" depends="required" >
+                <arg key="helpdesk.descricao"/>
+            </field>
+            <field property="idcategoria" depends="required" >
+                <arg key="helpdesk.categoria"/>
+            </field>
+            <field property="idsubcategoria" depends="required" >
+                <arg key="helpdesk.subcategoria"/>
+            </field>
+            <field property="resposta" depends="required" >
+                <arg key="helpdesk.resposta"/>
+            </field>
+            <field property="arquivoAnexo" depends="required" page="2">
+                <arg key="helpdesk.anexo"/>
+            </field>
+        </form>
+    </formset>
+    
+    <formset>
+        <form name="chamadoSuporteForm">
+            <field property="idusuario" depends="required">
+                <arg key="helpdesk.usuario"/>
+            </field>
+            <field property="idorigem" depends="required">
+                <arg key="helpdesk.origem"/>
+            </field>
+            <field property="idsituacao" depends="required">
+                <arg key="helpdesk.situacao"/>
+            </field>
+            <field property="idprioridade" depends="required">
+                <arg key="helpdesk.prioridade"/>
+            </field>
+            <field property="idcategoria" depends="required">
+                <arg key="helpdesk.categoria"/>
+            </field>
+             <field property="idsubcategoria" depends="required">
+                <arg key="helpdesk.subcategoria"/>
+            </field>
+            <field property="assunto" depends="required">
+                <arg key="helpdesk.assunto"/>
+            </field>
+            <field property="descricao" depends="required">
+                <arg key="helpdesk.descricao"/>
+            </field>
+            <field property="resposta" depends="required" page="2">
+                <arg key="helpdesk.resposta"/>
+            </field>
+        </form>
+    </formset>
+
+    <formset>
+        <form name="relatorioForm">
+            <field property="inicio" depends="required, date" page="1"> 
+                <var>
+                    <var-name>datePattern</var-name>
+                    <var-value>dd/MM/yyyy</var-value>
+                </var>
+                <msg resource="false" name="required" key="Informe a Data Inicial do relatório." />
+                <msg resource="false" name="date" key="Data Inicial inválida" />
+            </field>
+            <field property="fim" depends="required, date" page="1">
+                <var>
+                    <var-name>datePattern</var-name>
+                    <var-value>dd/MM/yyyy</var-value>
+                </var>
+                <msg resource="false" name="required" key="Informe a Data Final do relatório." />
+                <msg resource="false" name="date" key="Data Final inválida" />
+            </field>
+        </form>
+    </formset>       
+    
+    <formset>
+        <form name="situacaoForm">
+            <field property="situacao" depends="required">
+                <arg key="helpdesk.situacao"/>
+            </field>
+        </form>
+    </formset>
+
+</form-validation>

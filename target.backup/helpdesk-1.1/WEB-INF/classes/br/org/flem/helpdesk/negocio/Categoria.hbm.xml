@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<!--
+    Document   : Categoria.hbm.xml
+    Created on : 10 de Setembro de 2006, 11:11
+    Author     : mario
+    Description:
+        Purpose of the document follows.
+-->
+<hibernate-mapping>
+    <class name="br.org.flem.helpdesk.negocio.Categoria" table="categoria">
+
+        <id name="id" column="id_categoria" type="integer">
+            <generator class="identity" />
+        </id>
+
+        <property name="sigla" column="sigla" type="string" />
+        
+        <property name="descricao" column="descricao" type="string" />
+        
+        <property name="faq" column="faq" type="string" />
+        
+        <many-to-one name="pai" class="br.org.flem.helpdesk.negocio.Categoria" column="id_pai" insert="true" update="true"/>
+ 
+        <set name="filho" cascade="all" inverse="true" lazy="true" >
+            <key column="id_pai" />
+            <one-to-many class="br.org.flem.helpdesk.negocio.Categoria"/>
+        </set>
+    </class>
+</hibernate-mapping>

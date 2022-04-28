@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-configuration
+PUBLIC "-//Hibernate/Hibernate Configuration DTD//EN"
+"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory name="session-help">
+        
+        <!-- BD DE DESENVOLVIMENTO -->
+        <!--property name="hibernate.connection.url">jdbc:jtds:sqlserver://trancoso;databaseName=BDFlemHelp</property>
+        <property name="hibernate.connection.username">desenvolvimento</property>
+        <property name="hibernate.connection.password">ntoflem</property-->
+        
+        <!-- BD DE PRODUCAO -->
+        <property name="hibernate.connection.url">jdbc:jtds:sqlserver://servidorbd;database=BDFlemHelp;</property>
+        <property name="hibernate.connection.username">help</property>
+        <property name="hibernate.connection.password">kkq4pm54</property>
+        
+        <property name="hibernate.connection.driver_class">net.sourceforge.jtds.jdbc.Driver</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.SQLServerDialect</property>
+        <property name="hibernate.connection.provider_class">org.hibernate.connection.C3P0ConnectionProvider</property>
+        <property name="hibernate.show_sql">false</property>
+
+        <property name="c3p0.acquire_increment">1</property>
+        <property name="c3p0.idle_test_period">100</property>
+        <property name="c3p0.max_size">10</property>
+        <property name="c3p0.max_statements">0</property>
+        <property name="c3p0.min_size">1</property>
+        <property name="c3p0.timeout">100</property>
+
+        <mapping resource="br/org/flem/helpdesk/negocio/Anexo.hbm.xml" />
+        <mapping resource="br/org/flem/helpdesk/negocio/Categoria.hbm.xml" />
+        <mapping resource="br/org/flem/helpdesk/negocio/Chamado.hbm.xml" />
+        <mapping resource="br/org/flem/helpdesk/negocio/Historico.hbm.xml" />
+        <mapping resource="br/org/flem/helpdesk/negocio/MeioComunicacao.hbm.xml" />
+        <mapping resource="br/org/flem/helpdesk/negocio/Prioridade.hbm.xml" />
+        <mapping resource="br/org/flem/helpdesk/negocio/Situacao.hbm.xml" />
+    </session-factory>
+</hibernate-configuration>
+

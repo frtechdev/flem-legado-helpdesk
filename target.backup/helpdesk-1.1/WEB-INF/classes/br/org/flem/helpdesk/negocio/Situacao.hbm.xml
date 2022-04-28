@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<!--
+    Document   : Situacao.hbm.xml
+    Created on : 10 de Setembro de 2006, 11:11
+    Author     : mario
+    Description:
+        Purpose of the document follows.
+-->
+<hibernate-mapping>
+    <class name="br.org.flem.helpdesk.negocio.Situacao" table="situacao">
+
+        <id name="id" column="id_situacao" type="integer">
+		<generator class="identity" />
+	</id>
+
+	<property name="sigla" column="sigla" type="string" unique="true" />
+        
+        <property name="descricao" column="descricao" type="string" />
+        
+        <property name="resposta" column="resposta" type="string" length="255" />
+        
+        
+    </class>
+</hibernate-mapping>

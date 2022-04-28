@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<!--
+    Document   : Prioridade.hbm.xml
+    Created on : 10 de Setembro de 2006, 11:11
+    Author     : mario
+    Description:
+        Purpose of the document follows.
+-->
+<hibernate-mapping>
+    <class name="br.org.flem.helpdesk.negocio.Prioridade" table="prioridade">
+
+        <id name="id" column="id_prioridade" type="integer">
+		<generator class="identity" />
+	</id>
+
+	<property name="sigla" column="sigla" type="string" unique="true" />
+        
+        <property name="descricao" column="descricao" type="string" />
+        
+        
+    </class>
+</hibernate-mapping>

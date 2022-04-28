@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<taglib version="2.0" xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee web-jsptaglibrary_2_0.xsd">
+    
+    <tlibversion>1.2</tlibversion>
+    <jspversion>1.1</jspversion>
+    <shortname>acesso</shortname>
+    <uri>http://flem.org.br/helpdesk/menu-tag</uri>
+ 
+    <tag>
+        <name>menu</name>
+        <tagclass>br.org.flem.helpdesk.web.tag.HelpDeskMenuTag</tagclass>
+        <bodycontent>empty</bodycontent>
+        <info>Tag para criar o menu de acordo com o perfil do usuário - especificamente customizada para o trilhasec</info>
+    </tag>
+</taglib>

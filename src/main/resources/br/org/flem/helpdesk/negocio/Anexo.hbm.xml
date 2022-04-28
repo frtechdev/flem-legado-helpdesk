@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<!--
+    Document   : Chamado.hbm.xml
+    Created on : 10 de Setembro de 2006, 11:11
+    Author     : diego
+    Description:
+        Purpose of the document follows.
+-->
+<hibernate-mapping>
+    <class name="br.org.flem.helpdesk.negocio.Anexo" table="anexo">
+
+        <id name="id" column="id_anexo" type="integer">
+		<generator class="identity" />
+	</id>
+
+	<property name="arquivo" column="arquivo" type="binary" />
+        
+        <many-to-one name="chamado" class="br.org.flem.helpdesk.negocio.Chamado" column="id_chamado" />
+    </class>
+</hibernate-mapping>

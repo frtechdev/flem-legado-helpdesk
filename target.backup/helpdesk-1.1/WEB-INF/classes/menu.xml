@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE grupo SYSTEM "padrao.dtd">
+<grupo nome="Menu" >
+    <menu nome="Suporte" >
+        <item nome="Novo" href="ChamadoSuporte.do?metodo=novo" perfil="hdsuporte" />
+        <item nome="Listar" href="ChamadoSuporte.do" perfil="hdsuporte" />
+    </menu>
+    <menu nome="Relatórios" >
+        <item nome="Lista de Chamados" href="Relatorio.do?metodo=filtroListagemChamados" perfil="hdsuporte" />
+    </menu>
+    <menu nome="Consultas" >
+        <item nome="Consulta de Chamados" href="Consulta.do" perfil="hdsuporte" />
+        <item nome="Resumo de Chamados" href="Resumo.do" perfil="hdsuporte" />
+    </menu>
+    <menu nome="Configuração" >
+        <item nome="Categorias" href="Categoria.do" perfil="hdgercat" />
+        <item nome="Respostas Automáticas" href="Situacao.do" perfil="hdgercat" />
+        <item nome="Equipamentos" href="Equipamento.do" perfil="hdsuporte" />
+    </menu>
+    <menu nome="Atendimento" >
+        <item nome="Novo" href="ChamadoUsuario.do?metodo=novo" perfil="hdusuario" />
+        <item nome="Listar" href="ChamadoUsuario.do" perfil="hdusuario"/>
+    </menu>
+    <menu nome="Sistema">
+        <item nome="Sair" href="logout" perfil="*"/>
+    </menu>
+        
+</grupo>
